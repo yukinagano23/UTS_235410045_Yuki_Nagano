@@ -139,7 +139,24 @@ curl http://localhost:8080/
 curl http://localhost:8080/
 ```
 <img width="961" height="122" alt="gambar" src="https://github.com/user-attachments/assets/2046c544-406c-4c76-adfa-0823c242ce74" />
+Ini membuktikan nginx mendistribusikan request secara round-robin ke ketiga instance.
 
+---
 
+### Langkah 9 — Cek Status Container
+```bash
+podman ps
+```
+<img width="951" height="260" alt="gambar" src="https://github.com/user-attachments/assets/07416d1f-735e-47da-82a8-a8ac0528661d" />
+
+---
+
+### Langkah 10 — Uji High Availability
+```bash
+podman stop app2
+curl http://localhost:8080/
+```
+<img width="973" height="125" alt="gambar" src="https://github.com/user-attachments/assets/8e5a82f8-3657-49d6-ad63-29bef25f6194" />
+nginx akan otomatis melewati app2 yang down dan meneruskan ke instance yang masih aktif.
 
 
